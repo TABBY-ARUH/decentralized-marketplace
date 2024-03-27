@@ -1,18 +1,18 @@
 {
   "canisters": {
-    "marketplace": {
-      "main": "src/decentralized-marketplace/index.ts",
-      "type": "motoko"
-    },
-    "internet_identity": {
-      "main": "src/internet_identity/index.ts",
-      "type": "motoko"
+    "decentralized-marketplace": {
+      "type": "custom",
+      "build": "cargo build --target wasm32-unknown-unknown --package decentralized-marketplace --release",
+      "wasm": "build/decentralized-marketplace.wasm",
+      "candid": "src/declarations/identity_backend/identity_backend.did"
     }
   },
-  "defaults": {
-    "build": {
-      "packtool": "dfx",
-      "output": "build"
+  "networks": {
+    "local": {
+      "bind": "0.0.0.0:8000",
+      "type": "ephemeral"
     }
-  }
+  },
+  "identity": "nelly-chemmy",
+  "version": 1
 }

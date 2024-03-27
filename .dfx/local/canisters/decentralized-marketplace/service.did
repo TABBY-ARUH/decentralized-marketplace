@@ -1,0 +1,14 @@
+type OrderDetails = record {
+  // Define the fields of OrderDetails here
+};
+
+service DecentralizedMarketplace : {
+    listProduct : (title: text, description: text, price: nat, attachmentUrl: text) -> () ;
+    createOrder : (productId: text, quantity: nat) -> () ;
+    completeOrder : (orderId: text) -> () ;
+    cancelOrder : (orderId: text) -> () ;
+    getOrderDetails : (orderId: text) -> (OrderDetails) query;
+    makePayment : (orderId: text) -> () ;
+    verifyIdentity : (identityId: text) -> () ;
+    checkBalance : () -> (nat) query;
+};

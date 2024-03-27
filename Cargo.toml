@@ -1,0 +1,11 @@
+[package]
+name = "decentralized-marketplace"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ic-cdk = "0.7.0"
+
+[build]
+# Set a default target for cargo fx for a more consistent experience.
+target = "wasm32-unknown-unknown"

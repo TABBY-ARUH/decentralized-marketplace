@@ -1,0 +1,54 @@
+service : DecentralizedMarketplace {
+    // Method for users to list products for sale
+    public func listProduct(
+        title: Text,
+        description: Text,
+        price: Nat,
+        attachmentUrl: Text
+    ) : async ();
+
+    // Method for users to create an order
+    public func createOrder(
+        productId: Text,
+        quantity: Nat
+    ) : async ();
+
+    // Method for users to complete an order
+    public func completeOrder(
+        orderId: Text
+    ) : async ();
+
+    // Method for users to cancel an order
+    public func cancelOrder(
+        orderId: Text
+    ) : async ();
+
+    // Method for users to get details of an order
+    public query func getOrderDetails(
+        orderId: Text
+    ) : async (OrderDetails);
+
+    // Method for users to make a payment
+    public func makePayment(
+        orderId: Text
+    ) : async ();
+
+    // Method for users to verify their identity
+    public func verifyIdentity(
+        identityId: Text
+    ) : async ();
+
+    // Method for users to check their balance
+    public query func checkBalance() : async (Nat);
+}
+
+// Structure representing the details of an order
+type OrderDetails = {
+    productId: Text;
+    quantity: Nat;
+    status: Text;
+    totalPrice: Nat;
+    sellerId: Text;
+    buyerId: Text;
+};
+
